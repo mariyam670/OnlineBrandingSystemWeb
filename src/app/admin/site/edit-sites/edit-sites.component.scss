@@ -1,0 +1,48 @@
+.modal-title {
+    color: #3a3ae7;
+}
+
+.container {
+    .input-field {
+        margin-left: 25px;
+        margin-right: 20px;
+        padding-top: 10px !important;
+        padding-bottom: -10px !important;
+        background-color: white !important;
+    }
+
+    .alignButtonClose {
+        text-align: right;
+    }
+
+    .imgDiv {
+        margin-left: 180px;
+
+        .image {
+            width: 180px;
+            height: 140px;
+            vertical-align: top;
+            justify-content: center;
+        }
+
+    }
+
+    .alignButton {
+       .space-between{
+        justify-content: space-between !important;
+        display: flex;
+        .add-btn {
+            background-color: #3a3ae7;
+            color: white;
+            
+        }
+
+        .close-btn {
+            background-color: #fd1717;
+            color: white;
+        }
+       }
+      
+    }
+
+}

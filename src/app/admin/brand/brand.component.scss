@@ -1,0 +1,104 @@
+.header-title {
+    min-height: 120px;
+    background-color: #b0b0d6;
+    margin: 0 -1rem;
+    font-size: 34px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.content {
+    border-radius: 10px;
+    margin-top: -3em;
+    background-color: white;
+    min-height: calc(100vh - 20px);
+    margin-left: 90px;
+    margin-right: 90px;
+    padding: 30px;
+
+    .search-add {
+        display: flex;
+        .add-btn{
+            background-color:#b0b0d6;
+            color:black
+        }
+    }
+
+    .search-bar {
+        width: 100%;
+      
+    }
+
+    .panel{
+        
+        :hover{
+            background-color:#b0b0d6;
+        }
+        .mat-expansion-panel-header-title {
+            align-items: flex-start;
+            padding-top:5px;
+            padding-bottom:5px;
+            .image {
+                height: 45px;
+                width: 45px;
+            }
+    
+        }
+    
+        .mat-expansion-panel-header-description {
+            align-items: center;
+        }
+    
+        .description {
+            color: black;
+            font-size: large;
+            justify-content: space-between;
+        }
+    
+        .table {
+            td {
+                text-align: left;
+                color: #6f6f92
+            }
+    
+            th{
+                text-align: left;
+                .description-icon{
+                    color: darkblue !important;
+                    margin-right: 3px;
+                    align-items: center;
+                }
+            }
+        }
+    
+    }
+
+    .action {
+        display: flex;
+        justify-content: space-between;
+        /* To evenly distribute the buttons */
+        align-items: center;
+        /* To vertically center the buttons */
+
+        &-btn {
+            outline: none;
+            border: none;
+
+        &-color-delete{
+            color: red !important;
+        }
+        &-color-edit{
+            color: rgb(0, 34, 255) !important;
+        }
+        }
+    }
+
+}
+
+.try{
+    display: flex;
+    margin-right: 10px;
+    .example-card{
+        margin-right: 10px;
+        width:300px
+    }
+}

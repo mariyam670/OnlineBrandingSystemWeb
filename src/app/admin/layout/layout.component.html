@@ -1,0 +1,54 @@
+<mat-toolbar>
+    <mat-toolbar-row class="justify-content-between">
+
+        <button mat-icon-button class="user" (click)="toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+            <img src="../../../assets/images/companylogo.png" alt="logo" class="align-items-center logo">
+            <p class=" mx-3 mt-3 companylogo ">BrandGlare</p>
+        <div class="row mr-2 ml-auto">
+            <ul class="row m-0 align-items-center">
+                <li>
+                    <button mat-button class="user mt-2 d-flex align-items-center" [matMenuTriggerFor]="menu">
+                        <img src="../../../assets/images/user.png" alt="" class="user-image mr-1 p-2" />
+                        Mariyam
+                        <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item>
+                            <mat-icon>exit_to_app</mat-icon>
+                            Logout
+                        </button>
+                    </mat-menu>
+                </li>
+            </ul>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="over" class="sidenav">
+        <mat-nav-list class="mat-body-1">
+
+            <mat-list-item [routerLink]="['/admin/site']" [routerLinkActive]="['active-nav-item']">
+                <mat-icon >open_in_browser</mat-icon>
+                Sites
+            </mat-list-item>
+            <mat-list-item [routerLink]="['/admin/brand']" [routerLinkActive]="['active-nav-item']">
+                <mat-icon>business</mat-icon>
+                Brands
+            </mat-list-item>
+            <mat-list-item [routerLink]="['/admin/rating']" [routerLinkActive]="['active-nav-item']">
+                <mat-icon>star_half</mat-icon>
+                Ratings
+            </mat-list-item>
+            <mat-list-item [routerLink]="['/admin/qualification']" [routerLinkActive]="['active-nav-item']">
+                <mat-icon>pageview</mat-icon>
+                Page Views
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

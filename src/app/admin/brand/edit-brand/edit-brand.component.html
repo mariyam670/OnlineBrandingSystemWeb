@@ -1,0 +1,123 @@
+<div class="modal-header mb-2">
+    <ng-container *ngIf="data.mode==DialogMode.New,else updateTitle">
+        <h4 class="modal-title">Add Brands</h4>
+    </ng-container>
+    <ng-template #updateTitle>
+        <h4 class="modal-title">Update Brands</h4>
+    </ng-template>
+
+    <div class="close-button">
+        <mat-icon mat-dialog-close>close</mat-icon>
+    </div>
+</div>
+
+<!-- <div class="loading-overlay" *ngIf="isLoading">
+    <mat-spinner diameter="32" color="primary"></mat-spinner>
+</div> -->
+
+<div class="container">
+    <mat-stepper linear=true #stepper>
+        <form [formGroup]="brandForm">
+            <div class="mt-3">
+                <mat-step>
+                    <ng-template matStepLabel>Brand </ng-template>
+                    <mat-form-field class="input-field" appearance="fill">
+                        <mat-label>Name</mat-label>
+                        <input matInput placeholder="Brand Name" formControlName="name" class="input">
+                    </mat-form-field>
+                    <!-- <p *ngIf="username.touched && username.invalid">
+                    <mat-error *ngIf="username.errors['required']">Username is required</mat-error></p> -->
+
+                    <mat-form-field class="input-field" appearance="fill">
+                        <mat-label>Email Id</mat-label>
+                        <input matInput placeholder="xyz12@gmail.com" formControlName="emailId" class="input">
+                    </mat-form-field>
+
+                    <mat-form-field class="input-field" appearance="fill">
+                        <mat-label>Contact No</mat-label>
+                        <input matInput placeholder="10 digit only" formControlName="contact" class="input">
+                    </mat-form-field>
+
+                    <mat-divider class="mb-2"></mat-divider>
+                    <div class="alignButtonClose">
+                        <button mat-raised-button class="close-btn" mat-dialog-close>Close</button>
+                        <button mat-raised-button matStepperNext align="end" class="next-btn">Next</button>
+                    </div>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Describe Your Brand </ng-template>
+                    <mat-form-field class="input-field" appearance="fill">
+                        <mat-label>Quote</mat-label>
+                        <input matInput placeholder="Quote ''" formControlName="quote" class="input">
+                    </mat-form-field>
+                    <!-- <p *ngIf="username.touched && username.invalid">
+     <mat-error *ngIf="username.errors['required']">Username is required</mat-error></p> -->
+
+                    <mat-form-field class="input-field" appearance="fill">
+                        <mat-label>Keywords</mat-label>
+                        <input matInput placeholder="Keywords" formControlName="keywords" class="input">
+                    </mat-form-field>
+
+                    <mat-form-field class="input-field" appearance="fill">
+                        <mat-label>Interest</mat-label>
+                        <input matInput formControlName="interests" class="input">
+                    </mat-form-field>
+                    
+                    <mat-form-field class="input-field" appearance="fill">
+                        <mat-label>Description</mat-label>
+                        <input matInput formControlName="description" class="input">
+                    </mat-form-field>
+ 
+                    <mat-divider class="mb-2"></mat-divider>
+                    <div class="alignButtonClose">
+                        <button mat-raised-button class="close-btn" mat-dialog-close>Close</button>
+                        <button mat-raised-button matStepperNext align="end" class="next-btn">Next</button>
+                    </div>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Brand Details</ng-template>
+
+                    <mat-form-field class="input-field" appearance="fill">
+                        <mat-label>Site Name</mat-label>
+                        <mat-select formControlName="siteName" class="input" >
+                          <mat-option *ngFor="let site of sites" [value]="site.siteId">{{site.siteTitle}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                    <mat-form-field class="input-field" appearance="fill">
+                        <mat-label>Upload Image</mat-label>
+                        <ngx-mat-file-input formControlName="image" (change)="onFileSelected($event)" class="input-file"
+                            accept="image/*"></ngx-mat-file-input>
+                    </mat-form-field>
+
+                    <div class="imgDiv">
+                        <ng-container *ngIf="data.mode==DialogMode.Edit && imageBase64==null; else elseBlock">
+                            <img [src]="'data:image/png;base64,' + image.value" alt="Image" class="image">
+                        </ng-container>
+
+                        <ng-template #elseBlock>
+                            <img *ngIf="imageBase64!=null" [src]="imageBase64" alt="Image" class="image">
+                        </ng-template>
+                    </div>
+
+                    <mat-divider class="mb-2"></mat-divider>
+                    <div class="alignButton">
+                        <ng-container *ngIf="data.mode==DialogMode.New,else update">
+                            <div class="space-between">
+                                <button mat-raised-button class="close-btn" mat-dialog-close>Close</button>
+                                <button mat-raised-button class="add-btn" (click)="upsertBrand()">Add</button>
+                            </div>
+                        </ng-container>
+                        <ng-template #update>
+                            <div class="space-between">
+                                <button mat-raised-button class="close-btn" mat-dialog-close>Close</button>
+                                <button mat-raised-button class="add-btn" (click)="upsertBrand()">Update</button>
+                            </div>
+                        </ng-template>
+
+                    </div>
+                </mat-step>
+            </div>
+        </form>
+    </mat-stepper>
+</div>

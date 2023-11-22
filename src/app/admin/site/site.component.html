@@ -1,0 +1,90 @@
+<div class="container-fluid">
+    <div class="header-title mt-4 pl-3">Sites</div>
+    <div class="content text-center">
+        <div class="container">
+            <div class="search-add">
+                <mat-form-field class="m-2 p-2 search-bar">
+                    <mat-icon matPrefix>search</mat-icon>
+                    <mat-label>Search </mat-label>
+                    <input matInput (keyup)="applyFilter($event)">
+                </mat-form-field>
+                <button mat-fab extended class="mt-4 mx-3 add-btn" (click)="openDialog(null,DialogMode.New)">
+                    <mat-icon>add</mat-icon>Add
+                </button>
+            </div>
+            <mat-accordion multi>
+                <div class="panel-container">
+                <ng-container *ngFor="let site of sites; let i = index">
+                        <mat-expansion-panel class="panel" :not *ngIf="isSiteVisible(i)">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                </mat-panel-title>
+                                <mat-panel-description class="description">
+                                    <img [src]="'data:image/png;base64,' + site.siteImage" alt="Image" class="image">
+                                    <div>
+                                        <button mat-icon-button class="action-btn"
+                                            (click)="openDialog(site,DialogMode.Edit)">
+                                            <mat-icon matTooltip="edit" class="action-btn-color-edit">edit</mat-icon>
+                                        </button>
+                                        <button mat-icon-button class="action-btn">
+                                            <mat-icon matTooltip="delete"
+                                                class="action-btn-color-delete">delete</mat-icon>
+                                        </button>
+                                    </div>
+
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <br>
+                            <table class="mat-elevation-z8 table">
+                                <tr>
+                                    <th>
+                                        <mat-icon matTooltip="keyword" class="description-icon">keyword</mat-icon>
+                                        Keyword
+                                    </th>
+                                    <td> {{site.siteKeyword}} </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <mat-icon matTooltip="description"
+                                            class="description-icon">description</mat-icon>
+                                        Description
+                                    </th>
+                                    <td> {{site.siteDescription}} </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <mat-icon matTooltip="site" class="description-icon">open_in_new</mat-icon>
+                                        Url
+                                    </th>
+                                    <td> {{site.siteUrl}} </td>
+                                </tr>
+                                <tr>
+                                    <th>
+                                        <mat-icon matTooltip="email" class="description-icon">email</mat-icon>
+                                        Email
+                                    </th>
+                                    <td> {{site.siteEmail}} </td>
+                                </tr>
+                                <!-- 
+                            <th >Action</th>
+                            <td  *matCellDef="let site;let i=index;" class="action">
+                       
+        
+                            </td> -->
+
+
+                                <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+                            </table>
+
+
+                        </mat-expansion-panel>
+                </ng-container>
+            </div>
+            </mat-accordion>
+            <mat-paginator *ngIf="sites" [length]="sites.length" [pageSize]="pageSize" [pageIndex]="currentPage"
+                (page)="updatePage($event.pageIndex)"></mat-paginator>
+        </div>
+
+    </div>
+</div>
