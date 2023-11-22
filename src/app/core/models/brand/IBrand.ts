@@ -1,3 +1,5 @@
+import { ISite } from "../site/ISite";
+
 export interface IBrand {
       brandId: number,
       brandName: string,
@@ -14,5 +16,5 @@ export interface IBrand {
       createdBy: number,
       deletedOn: Date,
       siteId: number,
-
+      site:ISite
 }

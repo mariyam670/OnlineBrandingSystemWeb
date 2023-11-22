@@ -25,24 +25,12 @@ const routes: Routes = [
       {
         path: 'rating',
         loadChildren: () => import('../admin/rating/rating.module').then(m => m.RatingModule)
+      },
+      {
+        path: 'pageView',
+        loadChildren: () => import('../admin/page-view/page-view.module').then(m => m.PageViewModule)
       }
-
     ]
-    // 
-    //   {
-    //     path: 'source',
-    //     loadChildren: () => import('./sources/sources.module').then(m => m.SourcesModule)
-    //   },
-    //   {
-    //     path: 'qualification',
-    //     loadChildren: () => import('./qualification/qualification.module').then(m => m.QualificationModule)
-    //   },
-    //   {
-    //     path: '**',
-    //     redirectTo: 'application',
-    //     pathMatch: 'full'
-    //   }
-    // ]
   }]
   ;
 

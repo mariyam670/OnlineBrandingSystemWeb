@@ -1,0 +1,107 @@
+@import '../shared/color-code.scss';
+.header-title {
+    min-height: 120px;
+    background-color: $bg;
+    margin: 0 -1rem;
+    font-size: 34px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.content {
+    border-radius: 10px;
+    margin-top: -3em;
+    background-color: white;
+    min-height: calc(100vh - 20px);
+    margin-left: 90px;
+    margin-right: 90px;
+    padding: 30px;
+
+
+    .search-add {
+        display: flex;
+
+        .add-btn {
+            background-color: $bg;
+            color: black
+        }
+    }
+
+    .search-bar {
+        width: 100%;
+
+    }
+
+    .container-group {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        /* Two equal columns */
+        grid-gap: 20px;
+        /* Adjust the gap between the panels as needed */
+
+        .header {
+            padding-top: 0px;
+            padding-bottom: 2px;
+            padding-left: 10px;
+            padding-right:0;
+            .title {
+                display: flex;
+                font-family: 'Times New Roman', Times, serif;
+                font-size: 17px;
+                font-weight: 700;
+                padding-bottom:0 ;
+
+                p {
+                    padding-top: 16px;
+                    margin-left: 12px;
+                }
+
+                .icon-size {
+                    margin-top: 10px;
+                    color: gold;
+                }
+            }
+            .action {
+                display: flex;
+                margin-left: 20px;
+
+                &-btn {
+                    outline: none;
+                    border: none;
+
+                    &-color-delete {
+                        color: red !important;
+                    }
+
+                    &-color-edit {
+                        color: rgb(0, 34, 255) !important;
+                    }
+                }
+            }
+        }
+
+        .tableDiv{
+            th{
+                font-weight: 400;
+                font-family: 'Times New Roman', Times, serif;
+                font-size: large;
+            }
+            td{
+                font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+               
+                .rate{
+                    color: gold;
+                }
+            }
+
+            
+        }
+
+        .userName {
+            color:  rgb(2, 179, 167);
+            font-size: 12px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+    }
+
+}

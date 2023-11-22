@@ -1,1 +1,73 @@
-<p>rating works!</p>
+<div class="container-fluid">
+    <div class="header-title mt-4 pl-3">Ratings</div>
+    <div class="content text-center">
+        <div class="container">
+            <div class="search-add">
+                <mat-form-field class="m-2 p-2 search-bar">
+                    <mat-icon matPrefix>search</mat-icon>
+                    <mat-label>Search </mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <button mat-fab extended class="mt-4 mx-3 add-btn"  (click)="openDialog(null,DialogMode.New)">
+                    <mat-icon>add</mat-icon>Add
+                </button>
+            </div>
+            <div class="container-group">
+                <ng-container *ngFor="let rate of rates">
+                    <mat-card>
+                        <mat-card-header class="header">
+                            <mat-card-title class="title">
+                                <mat-icon class="icon-size ">star</mat-icon>
+                                <p>  User Reviews</p>
+
+                                <div class="action">
+                                    <button mat-icon-button class="action-btn" (click)="openDialog(rate,DialogMode.Edit)">
+                                        <mat-icon matTooltip="edit" class="action-btn-color-edit">edit</mat-icon>
+                                    </button>
+                                    <button mat-icon-button class="action-btn">
+                                        <mat-icon matTooltip="delete" class="action-btn-color-delete">delete</mat-icon>
+                                    </button>
+                                </div>
+
+                            </mat-card-title>
+                            <mat-card-subtitle class="subtitle">
+                            </mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content class="text-left">
+                            <mat-divider class="mb-3"></mat-divider>
+                            <table class="tableDiv">
+                                <tr>
+                                    <th>Site :</th>
+                                    <td class="pl-3">
+                                        {{rate.brand['site']['siteTitle']}}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Brand :</th>
+                                    <td class="pl-3">
+                                        {{rate.brand['brandName']}}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Ratings :</th>
+                                    <td class="pl-3">
+                                        <p-rating [cancel]="false"  [readonly]="true"  [stars]="rate.ratingValue" class="rate"></p-rating>
+                                    </td>
+                                </tr>
+                            </table>
+                        </mat-card-content>
+                        <mat-divider class="mt-3">
+                        </mat-divider>
+                        <mat-card-actions align="end" class="userName">
+                            {{rate.user['fullName']}}
+                        </mat-card-actions>
+                    </mat-card>
+                </ng-container>
+
+
+            </div>
+        </div>
+    </div>
+</div>

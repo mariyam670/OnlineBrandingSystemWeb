@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <div class="header-title mt-4 pl-3">Page Views</div>
+    <div class="content text-center">
+        <div class="container">
+            <div class="search-add">
+                <mat-form-field class="m-2 p-2 search-bar">
+                    <mat-icon matPrefix>search</mat-icon>
+                    <mat-label>Search </mat-label>
+                    <input matInput>
+                </mat-form-field>
+                <button mat-fab extended class="mt-4 mx-3 add-btn"  (click)="openDialog(null,DialogMode.New)">
+                    <mat-icon>add</mat-icon>Add
+                </button>
+            </div>
+            <div class="container-group">
+                <ng-container *ngFor="let PageView of pageView">
+                    <mat-card>
+                        <mat-card-header class="header">
+                            <mat-card-title class="title">
+                                <mat-icon matTooltip="pageview" class="pageView">pageview</mat-icon>
+                                <p>  Page Views Count</p>
+
+                                <div class="action">
+                                    <button mat-icon-button class="action-btn" (click)="openDialog(PageView,DialogMode.Edit)">
+                                        <mat-icon matTooltip="edit" class="action-btn-color-edit">edit</mat-icon>
+                                    </button>
+                                    <button mat-icon-button class="action-btn">
+                                        <mat-icon matTooltip="delete" class="action-btn-color-delete">delete</mat-icon>
+                                    </button>
+                                </div>
+
+                            </mat-card-title>
+                            <mat-card-subtitle class="subtitle">
+                            </mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-content class="text-left">
+                            <mat-divider class="mb-3"></mat-divider>
+                            <table class="tableDiv">
+                                <tr>
+                                    <th>Site :</th>
+                                    <td class="pl-3">
+                                        {{PageView.brand['site']['siteTitle']}}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th>Brand :</th>
+                                    <td class="pl-3">
+                                        {{PageView.brand['brandName']}}
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <th class="pt-2">Page Count :</th>
+                                    <td class="pl-3 pt-2">
+                                        {{PageView.viewsCount}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </mat-card-content>
+                        <mat-divider class="mt-3">
+                        </mat-divider>
+                        <mat-card-actions align="end" class="userName">
+                            {{PageView
+.user['fullName']}}
+                        </mat-card-actions>
+                    </mat-card>
+                </ng-container>
+
+
+            </div>
+        </div>
+    </div>
+</div>

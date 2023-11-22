@@ -15,6 +15,11 @@ export class SiteService {
     return this.http.get<ISite[]>(url);
   }
 
+  getSitesById(id:number):Observable<ISite>{
+    var url=`${enviroment.api}/Site/GetSitesById/{id}`;
+    return this.http.get<ISite>(url);
+  }
+
   addSites(site:FormData):Observable<FormData>{
     var url=`${enviroment.api}/Site/AddSites`;
     return this.http.post<FormData>(url,site);

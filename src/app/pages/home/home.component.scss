@@ -1,0 +1,81 @@
+.bannerDiv {
+
+  .img {
+    width: 100%;
+    height: 400px;
+  }
+
+  .carousel {
+    width: 100%;
+  }
+
+}
+
+
+.topCategories {
+
+  .header {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    text-align: center;
+    color: darkblue;
+    font-size: xx-large;
+    margin-left: 20px;
+  }
+
+  .sub-title {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 200;
+    text-align: center;
+    color: darkblue;
+    font-size: large;
+    margin-left: 20px;
+  }
+
+}
+
+
+.carousel {
+  display: flex;
+  flex-direction: row;
+
+  .carousel-inner {
+    display: flex;
+    place-content: center;
+  }
+
+
+  .carousels {
+    width: 90%;
+    height: 40%;
+  }
+
+  .img-slide{
+    border-radius: 50%;
+    object-fit: fill;
+    border: 2px solid black;
+    height: 50%;
+    width: 100%;
+    place-content: center;
+  }
+  .slide {
+    margin: 10px 10px 10px 10px;
+    backdrop-filter: blur(6px);
+    cursor: pointer;
+    transition: all 0.5s;
+    border: 3px solid black;
+    box-shadow: none;
+     
+  }
+
+  .btn-prev {
+    margin-top: 190px;
+    margin-right: 2px;
+  }
+
+  .btn-next {
+    margin-top: 190px;
+    margin-left: 2px;
+  }
+
+}

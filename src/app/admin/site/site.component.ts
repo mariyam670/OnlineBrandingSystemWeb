@@ -22,7 +22,7 @@ export class SiteComponent implements OnInit {
   DialogMode = DialogMode;
   pageSize: number = 6; // Set your desired page size
   currentPage: number = 0;
-  
+  columns:any
   constructor(private siteService: SiteService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -51,9 +51,10 @@ export class SiteComponent implements OnInit {
     this.siteService.getSites().subscribe({
       next: data => {
         this.sites = data;
-        // this.datasource = new MatTableDataSource<ISite>(data);
-        // this.datasource.paginator = this.paginator;
-        // this.datasource.sort = this.sort;
+        this.columns = [
+          this.sites.slice(0, Math.ceil(this.sites.length / 2)),
+          this.sites.slice(Math.ceil(this.sites.length / 2))
+        ];
         console.log(this.sites);
       }
     })
@@ -68,5 +69,7 @@ export class SiteComponent implements OnInit {
     });
 
   }
+
+
 
 }

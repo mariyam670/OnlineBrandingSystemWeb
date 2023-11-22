@@ -1,6 +1,8 @@
+@import '../shared/color-code.scss';
+
 .header-title {
     min-height: 120px;
-    background-color: #b0b0d6;
+    background-color: $bg;
     margin: 0 -1rem;
     font-size: 34px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
@@ -17,59 +19,74 @@
 
     .search-add {
         display: flex;
-        .add-btn{
-            background-color:#b0b0d6;
-            color:black
+
+        .add-btn {
+            background-color: $bg;
+            color: black
         }
     }
 
     .search-bar {
         width: 100%;
-      
+
     }
 
-    .panel{
-        
-        :hover{
-            background-color:#b0b0d6;
+    .panel-container {
+        display: flex;
+        flex-direction: row;
+
+        .panel-column {
+            flex: 1;
         }
-        .mat-expansion-panel-header-title {
-            align-items: flex-start;
-            padding-top:5px;
-            padding-bottom:5px;
-            .image {
-                height: 45px;
-                width: 45px;
+
+
+        .panel {
+            margin: 10px;
+
+            :hover {
+                background-color: #b0b0d6;
             }
-    
-        }
-    
-        .mat-expansion-panel-header-description {
-            align-items: center;
-        }
-    
-        .description {
-            color: black;
-            font-size: large;
-            justify-content: space-between;
-        }
-    
-        .table {
-            td {
-                text-align: left;
-                color: #6f6f92
+
+            .mat-expansion-panel-header-title {
+                align-items: flex-start;
+                padding-top: 5px;
+                padding-bottom: 5px;
+
+                .image {
+                    height: 45px;
+                    width: 45px;
+                }
+
             }
-    
-            th{
-                text-align: left;
-                .description-icon{
-                    color: darkblue !important;
-                    margin-right: 3px;
-                    align-items: center;
+
+            .mat-expansion-panel-header-description {
+                align-items: center;
+            }
+
+            .description {
+                color: black;
+                font-size: large;
+                justify-content: space-between;
+            }
+
+            .table {
+                td {
+                    text-align: left;
+                    color: #6f6f92
+                }
+
+                th {
+                    text-align: left;
+
+                    .description-icon {
+                        color: darkblue !important;
+                        margin-right: 3px;
+                        align-items: center;
+                    }
                 }
             }
+
         }
-    
     }
 
     .action {
@@ -83,22 +100,24 @@
             outline: none;
             border: none;
 
-        &-color-delete{
-            color: red !important;
-        }
-        &-color-edit{
-            color: rgb(0, 34, 255) !important;
-        }
+            &-color-delete {
+                color: red !important;
+            }
+
+            &-color-edit {
+                color: rgb(0, 34, 255) !important;
+            }
         }
     }
 
 }
 
-.try{
+.try {
     display: flex;
     margin-right: 10px;
-    .example-card{
+
+    .example-card {
         margin-right: 10px;
-        width:300px
+        width: 300px
     }
 }

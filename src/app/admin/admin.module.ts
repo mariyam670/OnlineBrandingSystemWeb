@@ -6,6 +6,7 @@ import { AdminSharedModule } from './shared/admin-shared/admin-shared.module';
 @NgModule({
   declarations: [
     LayoutComponent,
+    
   ],
   imports: [
     CommonModule,

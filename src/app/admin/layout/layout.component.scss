@@ -1,8 +1,9 @@
+@import '../shared/color-code.scss';
 mat-toolbar{
     position: sticky;
     top:0%;
     z-index:100;
-    background-color: #b0b0d6;
+    background-color:$bg ;
 
     .logo{
       height:60px;
@@ -46,7 +47,7 @@ ul{
 mat-sidenav-container {
  mat-sidenav {
      min-width: 200px;
-    background-color: #b0b0d6;
+    background-color: $bg ;
      mat-nav-list {
          mat-list-item {          
              mat-icon {

@@ -1,0 +1,51 @@
+<br><br>
+<div class="bannerDiv">
+    <p-carousel [value]="images" class="carousel" [circular]="true" [responsiveOptions]="responsiveOptions"
+        [autoplayInterval]="3000" [showIndicators]="false" [showNavigators]="false">
+        <ng-template let-img pTemplate="item">
+            <img [src]="img.imgSrc" [alt]="img.imageAlt" class=" img" />
+        </ng-template>
+    </p-carousel>
+</div>
+
+<br><br>
+<div class="topCategories">
+    <p class="header">Categories</p>
+    <p class="sub-title">Browse The Brands From Top Categories</p>
+
+</div>
+
+<!-- 
+<div class="categoryDiv">
+    <p-carousel [value]="Categories" class="Categorycarousel"  [circular]="false" [responsiveOptions]="responsiveOptions" [numVisible]="4"  [showIndicators]="false" [showNavigators]="false">
+        <ng-template let-category pTemplate="item">
+            <mat-card class="categoryCard">
+                <img [src]="'data:image/png;base64,' + category.img"class="CategoryImg" />
+                <p class="categoryName">{{category.name}}</p>
+            </mat-card>
+                   
+        </ng-template>
+    </p-carousel>
+</div> -->
+
+<div style="padding: 2em;">
+    <div class="carousel">
+        <div class="carousel-inner">
+            <button mat-fab color="accent" class="btn-prev"
+                (click)="prev()"><mat-icon>arrow_back_ios</mat-icon></button>
+            <ngx-slick-carousel class="carousels" #slickModal="slick-carousel" [config]="slideConfig">
+                <div ngxSlickItem *ngFor="let category of Categories" class="slide">
+                    <img [src]="'data:image/png;base64,' +category.img" alt="img" class="img-slide">
+                    <br>
+                    <mat-card-content>
+                        <p style="text-align: center; font-weight: bold;">{{category.name}}</p>
+                    </mat-card-content>
+                </div>
+            </ngx-slick-carousel>
+            <button mat-fab color="accent" class="btn-next"
+                (click)="next()"><mat-icon>arrow_forward_ios</mat-icon></button>
+        </div>
+    </div>
+</div>
+
+<br><br><br><br>

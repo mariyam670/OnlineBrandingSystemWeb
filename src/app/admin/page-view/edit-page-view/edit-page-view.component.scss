@@ -1,0 +1,49 @@
+.modal-title {
+    color: #3a3ae7;
+}
+
+.container{
+    justify-content: center;
+    .input-field {
+        width:100%;
+        margin-left: 7px;
+        padding-right: 12px;
+        padding-top: 10px !important;
+        padding-bottom: -10px !important;
+        background-color: white !important;
+    }
+
+
+    .alignButtonClose {
+        justify-content: space-between !important;
+        display: flex;
+    
+        .next-btn{
+            background-color: #0ff454;
+            color: white;
+        }
+        .close-btn{
+            background-color: #fd1717;
+            color: white;
+        }
+    }
+
+    .alignButton {
+        .space-between{
+         justify-content: space-between !important;
+         display: flex;
+         .add-btn {
+             background-color: #3a3ae7;
+             color: white;
+             
+         }
+ 
+         .close-btn {
+             background-color: #fd1717;
+             color: white;
+         }
+        }
+       
+     }
+}
+

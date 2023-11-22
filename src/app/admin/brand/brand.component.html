@@ -14,84 +14,90 @@
             </div>
 
             <mat-accordion multi>
-                <ng-container *ngFor="let brand of brands; let i = index">
-                    <mat-expansion-panel class="panel" *ngIf="isBrandVisible(i)">
-                        <mat-expansion-panel-header>
-                            <mat-panel-title>
-                                <img [src]="'data:image/png;base64,' + brand.brandImage" alt="Image" class="image">
-                            </mat-panel-title>
-                            <mat-panel-description class="description">
-                                {{brand.brandName}}
-                                <div>
-                                    <button mat-icon-button class="action-btn"
-                                        (click)="openDialog(brand,DialogMode.Edit)">
-                                        <mat-icon matTooltip="edit" class="action-btn-color-edit">edit</mat-icon>
-                                    </button>
-                                    <button mat-icon-button class="action-btn">
-                                        <mat-icon matTooltip="delete" class="action-btn-color-delete">delete</mat-icon>
-                                    </button>
-                                </div>
+                <!-- <ng-container *ngFor="let brand of brands; let i = index"> -->
+                <!-- <mat-expansion-panel class="panel" *ngIf="isBrandVisible(i)"> -->
+                <div class="panel-container">
+                    <div class="panel-column" *ngFor="let columnPanels of columns">
+                        <mat-expansion-panel class="panel" *ngFor="let brand of columnPanels; let i = index">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    <img [src]="'data:image/png;base64,' + brand.brandImage" alt="Image" class="image">
+                                </mat-panel-title>
+                                <mat-panel-description class="description">
+                                    {{brand.brandName}}
+                                    <div>
+                                        <button mat-icon-button class="action-btn"
+                                            (click)="openDialog(brand,DialogMode.Edit)">
+                                            <mat-icon matTooltip="edit" class="action-btn-color-edit">edit</mat-icon>
+                                        </button>
+                                        <button mat-icon-button class="action-btn">
+                                            <mat-icon matTooltip="delete"
+                                                class="action-btn-color-delete">delete</mat-icon>
+                                        </button>
+                                    </div>
 
-                            </mat-panel-description>
-                        </mat-expansion-panel-header>
-                        <br><br>
-                        <div >
-                            <table class="mat-elevation-z8 table " >
-                                <tr>
-                                    <th>
-                                        <mat-icon matTooltip="email" class="description-icon">email</mat-icon>
-                                        Email
-                                    </th>
-                                    <td> {{brand.brandEmail}} </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <mat-icon matTooltip="contact" class="description-icon">phone</mat-icon>
-                                        Contact
-                                    </th>
-                                    <td> {{brand.brandContact}} </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <mat-icon matTooltip="brand" class="description-icon">format_quote</mat-icon>
-                                        Quote
-                                    </th>
-                                    <td> {{brand.brandQuote}} </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <mat-icon matTooltip="keyword" class="description-icon">keyword</mat-icon>
-                                        Keyword
-                                    </th>
-                                    <td> {{brand.brandKeyword}} </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <mat-icon matTooltip="email" class="description-icon">category</mat-icon>
-                                        Interests
-                                    </th>
-                                    <td> {{brand.brandInterests}} </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <mat-icon matTooltip="description" class="description-icon">description</mat-icon>
-                                        Description
-                                    </th>
-                                    <td> {{brand.brandDescription}} </td>
-                                </tr>
-                                <tr>
-                                    <th>
-                                        <mat-icon matTooltip="site" class="description-icon">open_in_new</mat-icon>
-                                        Site Id
-                                    </th>
-                                    <td> {{brand.siteId}} </td>
-                                </tr>
-                            </table>
-                        </div>
-                      
-                    </mat-expansion-panel>
-
-                </ng-container>
+                                </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <br><br>
+                            <div>
+                                <table class="mat-elevation-z8 table ">
+                                    <tr>
+                                        <th>
+                                            <mat-icon matTooltip="email" class="description-icon">email</mat-icon>
+                                            Email
+                                        </th>
+                                        <td> {{brand.brandEmail}} </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <mat-icon matTooltip="contact" class="description-icon">phone</mat-icon>
+                                            Contact
+                                        </th>
+                                        <td> {{brand.brandContact}} </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <mat-icon matTooltip="brand"
+                                                class="description-icon">format_quote</mat-icon>
+                                            Quote
+                                        </th>
+                                        <td> {{brand.brandQuote}} </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <mat-icon matTooltip="keyword" class="description-icon">keyword</mat-icon>
+                                            Keyword
+                                        </th>
+                                        <td> {{brand.brandKeyword}} </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <mat-icon matTooltip="email" class="description-icon">category</mat-icon>
+                                            Interests
+                                        </th>
+                                        <td> {{brand.brandInterests}} </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <mat-icon matTooltip="description"
+                                                class="description-icon">description</mat-icon>
+                                            Description
+                                        </th>
+                                        <td> {{brand.brandDescription}} </td>
+                                    </tr>
+                                    <tr>
+                                        <th>
+                                            <mat-icon matTooltip="site" class="description-icon">open_in_new</mat-icon>
+                                            Site
+                                        </th>
+                                        <td> {{getSiteName(brand.siteId) }}</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </mat-expansion-panel>
+                    </div>
+                </div>
+                <!-- </ng-container> -->
             </mat-accordion>
             <mat-paginator *ngIf="brands" [length]="brands.length" [pageSize]="pageSize" [pageIndex]="currentPage"
                 (page)="updatePage($event.pageIndex)"></mat-paginator>
@@ -100,6 +106,3 @@
 
     </div>
 </div>
-
-
-

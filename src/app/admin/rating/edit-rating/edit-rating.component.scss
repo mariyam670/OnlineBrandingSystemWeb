@@ -1,0 +1,56 @@
+.modal-title {
+    color: #3a3ae7;
+}
+
+.container{
+    justify-content: center;
+    .input-field {
+        width:85%;
+        margin-left: 25px;
+        margin-right: 16px;
+        padding-top: 10px !important;
+        padding-bottom: -10px !important;
+        background-color: white !important;
+    }
+
+    .rateLabel{
+        padding-left: 10px;
+        font-size: 18px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .rate{
+        color: gold;
+    }
+    .alignButtonClose {
+        justify-content: space-between !important;
+        display: flex;
+    
+        .next-btn{
+            background-color: #0ff454;
+            color: white;
+        }
+        .close-btn{
+            background-color: #fd1717;
+            color: white;
+        }
+    }
+
+    .alignButton {
+        .space-between{
+         justify-content: space-between !important;
+         display: flex;
+         .add-btn {
+             background-color: #3a3ae7;
+             color: white;
+             
+         }
+ 
+         .close-btn {
+             background-color: #fd1717;
+             color: white;
+         }
+        }
+       
+     }
+}
+

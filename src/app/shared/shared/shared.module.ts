@@ -21,7 +21,13 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
+import { MatBadgeModule } from '@angular/material/badge';
 
+import { NgToastModule } from 'ng-angular-popup' // to be added
+import { SlickCarouselModule } from 'ngx-slick-carousel';//to be added
+
+import { CarouselModule } from 'primeng/carousel'
+import { RatingModule } from 'primeng/rating';
 @NgModule({
   declarations: [],
   imports: [
@@ -46,7 +52,12 @@ import { MatSelectModule } from '@angular/material/select';
     MatStepperModule,
     MatCardModule,
     MatSelectModule,
+    MatBadgeModule,
 
+    NgToastModule,
+    RatingModule,
+
+    CarouselModule,
     HttpClientModule
 
   ],
@@ -71,6 +82,13 @@ import { MatSelectModule } from '@angular/material/select';
     MatStepperModule,
     MatCardModule,
     MatSelectModule,
+    MatBadgeModule,
+
+    NgToastModule,
+    RatingModule,
+    SlickCarouselModule,
+
+    CarouselModule,
     HttpClientModule
   ]
 })

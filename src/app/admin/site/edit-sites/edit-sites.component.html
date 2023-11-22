@@ -19,43 +19,54 @@
     <mat-stepper linear=true #stepper>
         <form [formGroup]="siteForm">
             <div class="mt-3">
-                <mat-step>
+                <mat-step [completed]="step1Complete()">
                     <ng-template matStepLabel>Site </ng-template>
                     <mat-form-field class="input-field" appearance="fill">
                         <mat-label>Title</mat-label>
                         <input matInput placeholder="Title" formControlName="title" class="input">
                     </mat-form-field>
-                    <!-- <p *ngIf="username.touched && username.invalid">
-     <mat-error *ngIf="username.errors['required']">Username is required</mat-error></p> -->
+                    <div class="error-messages">
+                        <p *ngIf="title.touched && title.invalid">
+                            <mat-error *ngIf="title.errors['required']">Title is required</mat-error>
+                        </p>
+                    </div>
 
                     <mat-form-field class="input-field" appearance="fill">
                         <mat-label>Keywords</mat-label>
                         <input matInput placeholder="Keywords" formControlName="keywords" class="input">
                     </mat-form-field>
-                    <!-- <p *ngIf="username.touched && username.invalid">
-                    <mat-error *ngIf="username.errors['required']">Username is required</mat-error></p> -->
+                    <div class="error-messages">
+                        <p *ngIf="keywords.touched && keywords.invalid">
+                            <mat-error *ngIf="keywords.errors['required']">Keyword is required</mat-error>
+                        </p>
+                    </div>
 
                     <mat-divider class="mb-2"></mat-divider>
                     <div class="alignButtonClose">
                         <button mat-raised-button matStepperNext align="end">Next</button>
                     </div>
                 </mat-step>
-                <mat-step>
+                <mat-step [completed]="step2Complete()">
                     <ng-template matStepLabel>Site Details</ng-template>
                     <mat-form-field class="input-field" appearance="fill">
                         <mat-label>Description</mat-label>
                         <input matInput placeholder="description" formControlName="description" class="input">
                     </mat-form-field>
-                    <!-- <p *ngIf="username.touched && username.invalid">
-     <mat-error *ngIf="username.errors['required']">Username is required</mat-error></p> -->
+                    <div class="error-messages">
+                        <p *ngIf="description.touched && description.invalid">
+                            <mat-error *ngIf="description.errors['required']">Description is required</mat-error>
+                        </p>
+                    </div>
 
                     <mat-form-field class="input-field" appearance="fill">
                         <mat-label>Url</mat-label>
                         <input matInput placeholder="xyz.com" formControlName="url" class="input">
                     </mat-form-field>
-                    <!-- <p *ngIf="username.touched && username.invalid">
-     <mat-error *ngIf="username.errors['required']">Username is required</mat-error></p> -->
-
+                    <div class="error-messages">
+                        <p *ngIf="url.touched && url.invalid">
+                            <mat-error *ngIf="url.errors['required']">Url is required</mat-error>
+                        </p>
+                    </div>
                     <mat-divider class="mb-2"></mat-divider>
                     <div class="alignButtonClose">
                         <button mat-raised-button matStepperNext align="end">Next</button>
@@ -67,19 +78,28 @@
                         <mat-label>Email Id</mat-label>
                         <input matInput placeholder="xyz12@gmail.com" formControlName="emailId" class="input">
                     </mat-form-field>
-                    <!-- <p *ngIf="emailId.touched && emailId.invalid">
-         <mat-error *ngIf="emailId.errors['required']">Email is required</mat-error>
-         <mat-error *ngIf="emailId.errors['pattern']">Enter valid email</mat-error> </p> -->
+                    <div class="error-messages">
+                        <p *ngIf="emailId.touched && emailId.invalid">
+                            <mat-error *ngIf="emailId.errors['required']">Email is required</mat-error>
+                            <mat-error *ngIf="emailId.errors['pattern']">Enter valid email</mat-error>
+                        </p>
+                    </div>
 
                     <mat-form-field class="input-field" appearance="fill">
                         <mat-label>Upload Image</mat-label>
                         <ngx-mat-file-input formControlName="image" (change)="onFileSelected($event)" class="input-file"
                             accept="image/*"></ngx-mat-file-input>
                     </mat-form-field>
+                    <!-- <div class="error-messages">
+                        <p *ngIf="image.touched && image.invalid">
+                           
+                            <mat-error *ngIf="image.hasError('accept')">Please upload an image file.</mat-error>
+                        </p>
+                    </div> -->
 
                     <div class="imgDiv">
                         <ng-container *ngIf="data.mode==DialogMode.Edit && imageBase64==null; else elseBlock">
-                            <img [src]="'data:image/png;base64,' + image.value" alt="Image" class="image">
+                            <img [src]="'data:image/png;base64,' + ImagefromDb" alt="Image" class="image">
                         </ng-container>
 
                         <ng-template #elseBlock>

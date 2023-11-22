@@ -3,14 +3,23 @@
 }
 
 .container {
+
     .input-field {
+        width:100%;
         margin-left: 25px;
-        margin-right: 20px;
+        padding-right:45px;
         padding-top: 10px !important;
         padding-bottom: -10px !important;
         background-color: white !important;
     }
 
+    .error-messages{
+        display: flex;
+        flex-direction: column;
+        padding-left: 25px;
+        padding-top: 0;
+        font-size: 14px;
+    }
     .alignButtonClose {
         text-align: right;
     }

@@ -12,15 +12,15 @@
                     <mat-icon>add</mat-icon>Add
                 </button>
             </div>
-            <mat-accordion multi>
-                <div class="panel-container">
-                <ng-container *ngFor="let site of sites; let i = index">
-                        <mat-expansion-panel class="panel" :not *ngIf="isSiteVisible(i)">
+            <div class="panel-container">
+                <div class="panel-column" *ngFor="let columnPanels of columns">
+                        <mat-expansion-panel class="panel" *ngFor="let site of columnPanels; let i = index" >
                             <mat-expansion-panel-header>
                                 <mat-panel-title>
+                                    <img [src]="'data:image/png;base64,' + site.siteImage" alt="Image" class="image">
                                 </mat-panel-title>
                                 <mat-panel-description class="description">
-                                    <img [src]="'data:image/png;base64,' + site.siteImage" alt="Image" class="image">
+                                    {{site.siteTitle}}
                                     <div>
                                         <button mat-icon-button class="action-btn"
                                             (click)="openDialog(site,DialogMode.Edit)">
@@ -66,22 +66,22 @@
                                     <td> {{site.siteEmail}} </td>
                                 </tr>
                                 <!-- 
-                            <th >Action</th>
-                            <td  *matCellDef="let site;let i=index;" class="action">
-                       
-        
-                            </td> -->
+                                <th >Action</th>
+                                <td  *matCellDef="let site;let i=index;" class="action">
+                           
+            
+                                </td> -->
 
 
                                 <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
                             </table>
 
 
                         </mat-expansion-panel>
-                </ng-container>
+                </div>
+
             </div>
-            </mat-accordion>
             <mat-paginator *ngIf="sites" [length]="sites.length" [pageSize]="pageSize" [pageIndex]="currentPage"
                 (page)="updatePage($event.pageIndex)"></mat-paginator>
         </div>

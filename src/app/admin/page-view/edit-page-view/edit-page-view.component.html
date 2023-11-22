@@ -1,0 +1,60 @@
+<div class="modal-header mb-2">
+    <ng-container *ngIf="data.mode==DialogMode.New,else updateTitle">
+        <h4 class="modal-title">Add Page View Count</h4>
+    </ng-container>
+    <ng-template #updateTitle>
+        <h4 class="modal-title">Update Page View Count</h4>
+        <div class="close-button">
+            <mat-icon mat-dialog-close>close</mat-icon>
+        </div>
+    </ng-template>
+</div>
+
+<!-- <div class="loading-overlay" *ngIf="isLoading">
+    <mat-spinner diameter="32" color="primary"></mat-spinner>
+</div> -->
+
+<div class="container">
+    <form [formGroup]="PageViewForm">
+        <div class="mt-3 textfieldDiv">
+            <mat-form-field class="input-field" appearance="fill">
+                <mat-label>Brand</mat-label>
+                <mat-select formControlName="brandName" >
+                  <mat-option *ngFor="let brand of brands" [value]="brand.brandId">{{brand.brandName}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <div class="error-messages">
+                <p *ngIf="BrandName.touched && BrandName.invalid">
+                    <mat-error *ngIf="BrandName.errors['required']">Select one brand</mat-error>
+                </p>
+            </div>
+
+                <mat-form-field class="input-field" appearance="fill">
+                    <mat-label>Page View Count</mat-label>
+                    <input matInput formControlName="pageView">
+                </mat-form-field>
+                <div class="error-messages">
+                    <p *ngIf="viewsCount.touched && viewsCount.invalid">
+                        <mat-error *ngIf="viewsCount.errors['required']">Select one brand</mat-error>
+                    </p>
+                </div>
+            
+            <mat-divider class="mb-2 mt-4"></mat-divider>
+            <div class="alignButton">
+                <ng-container *ngIf="data.mode==DialogMode.New,else update">
+                    <div class="space-between">
+                        <button mat-raised-button class="close-btn" mat-dialog-close>Close</button>
+                        <button mat-raised-button class="add-btn" (click)="upsertPageView()">Add</button>
+                    </div>
+                </ng-container>
+                <ng-template #update>
+                    <div class="space-between">
+                        <button mat-raised-button class="close-btn" mat-dialog-close>Close</button>
+                        <button mat-raised-button class="add-btn" (click)="upsertPageView()">Update</button>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </form>
+</div>
+<br>

@@ -1,6 +1,8 @@
+@import '../shared/color-code.scss';
+
 .header-title {
     min-height: 120px;
-    background-color: #b0b0d6;
+    background-color: $bg ;
     margin: 0 -1rem;
     font-size: 34px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
@@ -19,7 +21,7 @@
         display: flex;
 
         .add-btn {
-            background-color: #b0b0d6;
+            background-color: $bg;
             color: black
         }
     }
@@ -28,28 +30,32 @@
         width: 100%;
 
     }
-
     .panel-container {
-        display:grid;
-        grid-template-columns: repeat(2, 1fr); /* Two equal columns */
-        grid-gap: 20px; /* Adjust the gap between the panels as needed */
+        display:flex;
+        flex-direction:row;
 
-        .panel {
-            box-shadow: 0px 2px 0 0 rgba(0, 0, 0, 0.1);
+        .panel-column {
+            flex: 1;
+          }
+          
+        .panel {/* Adjust the width as needed */
+            margin: 10px;
             :hover {
                 background-color: #b0b0d6;
             }
         }
       }
+
+      .image {
+        height: 25px;
+        width: 35px;
+    }
+    
     .description {
         color: black;
         font-size: large;
         justify-content: space-between;
         align-items: center;
-        .image {
-            height: 45px;
-            width: 105px;
-        }
     }
 
     .table {
